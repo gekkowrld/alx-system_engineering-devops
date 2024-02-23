@@ -2,7 +2,7 @@
 # Act as a daemon
 
 user_input=
-if [ $# > 0 ]; then
+if [ $# -gt 0 ]; then
 	user_input=$1
 fi
 
@@ -18,14 +18,14 @@ function start_pr()
 
 function stop_pr()
 {
-	kill $(cat $var_file)
+	kill "$(cat $var_file)"
 	rm $var_file
 	echo "manage_my_process stopped"
 }
 
 function restart_pr()
 {
-	kill $(cat $var_file)
+	kill "$(cat $var_file)"
 	rm $var_file
 	bash $manage_cmd &
 	echo $! > $var_file
