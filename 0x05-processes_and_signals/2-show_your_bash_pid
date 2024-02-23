@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+# Show only programs that have the name "bash"
 # shellcheck disable=SC2009
 
 ps -auxf | grep bash
