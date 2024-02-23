@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+# Act as a daemon
+
+user_input=
+if [ $# > 0 ]; then
+	user_input=$1
+fi
+
+var_file="/tmp/my_process.pid"
+manage_cmd="manage_my_process"
+
+function start_pr()
+{
+	bash $manage_cmd &
+	echo $! > $var_file
+	echo "manage_my_process started"
+}
+
+function stop_pr()
+{
+	kill $(cat $var_file)
+	rm $var_file
+	echo "manage_my_process stopped"
+}
+
+function restart_pr()
+{
+	kill $(cat $var_file)
+	rm $var_file
+	bash $manage_cmd &
+	echo $! > $var_file
+	echo "manage_my_process restarted"
+}
+
+case $user_input in
+
+	start)
+	start_pr
+	;;
+	stop)
+	stop_pr
+	;;
+	restart)
+	restart_pr
+	;;
+	*)
+	echo "Usage: manage_my_process {start|stop|restart}"
+	;;
+esac
