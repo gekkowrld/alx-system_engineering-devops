@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
+# Print the program pid
 
 echo $$
