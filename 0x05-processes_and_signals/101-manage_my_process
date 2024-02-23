@@ -6,7 +6,7 @@ if [ $# > 0 ]; then
 	user_input=$1
 fi
 
-var_file="/tmp/my_process.pid"
+var_file="/var/run/my_process.pid"
 manage_cmd="manage_my_process"
 
 function start_pr()
