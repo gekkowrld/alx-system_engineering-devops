@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Do the famous fizz buzz challenge
+
+upper=100
+lower=1
+
+while [ $lower -le $upper ]; do
+	fizz_out=
+	if [[ $((lower%3)) -eq 0 ]] && [[ $((lower%5)) -eq 0 ]]; then
+		fizz_out="FizzBuzz"
+	elif [[ $((lower%3)) -eq 0 ]]; then
+		fizz_out="Fizz"
+	elif [[ $((lower%5)) -eq 0 ]]; then
+		 fizz_out="Buzz"
+	else
+		fizz_out="$lower"
+	fi
+	echo $fizz_out
+	((lower++))
+done
