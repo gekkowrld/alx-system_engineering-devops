@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Print out the contents of /etc/passwd (parts of it)
+
+pass_file="/etc/passwd"
+
+while IFS= read -r line; do
+	echo $line | cut -d ':' -f 1,3,6
+done < $pass_file
