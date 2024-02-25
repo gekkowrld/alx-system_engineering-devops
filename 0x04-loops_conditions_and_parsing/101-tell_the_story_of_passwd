@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Tell a user story
+
+etc_passwd="/etc/passwd"
+
+while IFS=":" read -r username passwd uid gid uidi home cmd; do
+	echo "The user $username is part of the $gid gang, lives in $home and rides $cmd. $uid's place is protected by the passcode $passwd, more info about the user here: $uidi"
+done < $etc_passwd
