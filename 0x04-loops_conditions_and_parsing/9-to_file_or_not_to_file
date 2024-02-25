@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Check if the file exists and see what to do
+
+t_file="school"
+
+if test -e $t_file; then
+	echo "$t_file file exists"
+
+	if test -s $t_file; then
+		echo "$t_file file is not empty"
+	else
+		echo "$t_file file is empty"
+	fi
+
+	if test -f $t_file; then
+		echo "$t_file is a regular file"
+	fi
+
+else
+	echo "$t_file file does not exist"
+fi
