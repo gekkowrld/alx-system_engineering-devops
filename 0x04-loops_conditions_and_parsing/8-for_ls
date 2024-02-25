@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# List the files in a directory
+
+ls_files=$(ls)
+
+for ls_file in $ls_files; do
+	echo "$ls_file" | cut -d "-" -f 2
+done
